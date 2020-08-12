@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
-
+import Toast from '../UI/Toasts/Toast'
 import Input from '../UI/Input/Input'
 import './fullmovie.css'
 
@@ -151,6 +151,7 @@ class Fullmovie extends Component {
             </div>
             fullmovie = (
                 <div className="onemovie">
+                    <Toast show={this.state.toastshow}/>
                     <div className="onemovie_parallax" style={{ backgroundImage: `url(${this.state.loadedmovie.pic})` }}></div>
                     <div className="onemovie_help">
                         <div className="onemovie_details">
