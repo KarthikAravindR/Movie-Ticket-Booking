@@ -1,9 +1,9 @@
 .card{
-    width: 330px;
+    width: 320px;
     height: 250px;
     background: #fff;
-    border-radius: 30px;
-    margin: 10px 15px;
+    border-radius: 7px;
+    margin: 10px auto;
     min-height: 126px;
     transition: all .25s ease;
     box-shadow: 1px 1px 0px 1px rgba(0,0,0,.08);
@@ -20,7 +20,20 @@
     display: flex;
     min-height: 156px;
 }
-
+.card:hover{
+    transform: translate(0, -15px);
+}
+.card:hover .con-img{
+    transform: translate(0, -10px);
+    box-shadow: 0px 17px 35px 0px rgba(0,0,0,.07);
+}
+.card:hover .con-img img.blur{
+    transform: translate(-10px,26px) scale(.85);
+    opacity: .45;
+}
+.card h3{
+    font-family: sans-serif;
+}
 .card .con-text{
     padding: 0 0 0 20px;
     width: 100%;
@@ -43,12 +56,20 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .35s ease;
 }
 .card img{
     height: 100%;
     width: 100%;
 }
-
+.card img.blur{
+    position: absolute;
+    filter: blur(15px);
+    z-index: -1;
+    opacity: .35;
+    transform: translate(-10px,10px) scale(.85);
+    transition: all .35s ease
+}
 .card_seats_button{
     width: 100%;
     padding: 5px 33px 5px 25px;
@@ -62,4 +83,23 @@ p{
 .card_seats_button p{
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
+}
+.card_seats_button button{
+    background-color: #ff2058;
+    border: 1px solid #ff2058;
+    border-radius: 7px;
+    color: white;
+    width: 110px;
+    height: 35px;
+    margin: 0 10px;
+}
+.card_seats_button button:disabled{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    color: #ccc;
+    width: 110px;
+    height: 35px;
+    margin: 0 10px;
+    cursor: not-allowed;
 }

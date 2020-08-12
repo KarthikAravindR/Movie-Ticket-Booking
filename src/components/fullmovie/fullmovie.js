@@ -37,16 +37,28 @@ class Fullmovie extends Component {
             seats: {
                 elementtype: 'select',
                 elementconfig: {
-                    options: [  { value: 1, displayvalue: 1 }, 
-                                { value: 2, displayvalue: 2 },
-                                { value: 3, displayvalue: 3 },
-                                { value: 4, displayvalue: 4 },
-                                { value: 5, displayvalue: 5 },
-                                { value: 6, displayvalue: 6 },]
+                    options: [{ value: 1, displayvalue: 1 },
+                    { value: 2, displayvalue: 2 },
+                    { value: 3, displayvalue: 3 },
+                    { value: 4, displayvalue: 4 },
+                    { value: 5, displayvalue: 5 },
+                    { value: 6, displayvalue: 6 },]
                 },
                 value: 1,
                 validation: {
                     isavailable: true
+                },
+                valid: true
+            },
+            Attendees_Name_1: {
+                elementtype: 'input',
+                elementconfig: {
+                    placeholder: 'Attendees Name',
+                    type: 'input'
+                },
+                value: '',
+                validation: {
+                    isrequired: true,
                 },
                 valid: true
             },
@@ -66,8 +78,8 @@ class Fullmovie extends Component {
             isValid = pattern.test(value) && isValid
         }
         if (rules.isavailable) {
-            console.log(isValid,value,this.state.loadedmovie.seats)
-            if(value >= this.state.loadedmovie.seats){
+            console.log(isValid, value, this.state.loadedmovie.seats)
+            if (value >= this.state.loadedmovie.seats) {
                 isValid = false
             }
         }
@@ -96,8 +108,14 @@ class Fullmovie extends Component {
         for (let formdataidentifier in this.state.orders) {
             formdata[formdataidentifier] = this.state.orders[formdataidentifier].value
         }
-        console.log('formdata', formdata)
-        alert('Booking Done') 
+        console.log('formdata =>', formdata)
+        this.setState({ toastshow: true })
+        setTimeout(() => {
+            this.setState({ toastshow: false })
+            this.props.history.push('/')
+        }, 1000)
+    }
+    ordercancelHandler = () => {
         this.props.history.push('/')
     }
     componentDidMount() {
@@ -123,27 +141,29 @@ class Fullmovie extends Component {
                 config: this.state.orders[key]
             })
         }
-        
+
         let fullmovie = null
         if (this.state.loadedmovie) {
             let form = <div>
-            <form>
-                {formelementarray.map(formelement => (
-                    <Input  key={formelement.id} 
-                            shouldvalidate={formelement.config.validation} 
-                            validity={formelement.config.valid} 
-                            changd={(event) => this.inputchangeHandler(event, formelement.id)} 
-                            label={formelement.id} 
-                            elementtype={formelement.config.elementtype} 
-                            elementconfig={formelement.config.elementconfig} 
-                            value={formelement.config.value} 
-                            availableseats={this.state.loadedmovie.seats}/>
-                ))}
-            </form>
-            <button disabled={!this.state.forminvalid} onClick={this.orderplacedHandler}>Book</button>
-        </div>
+                <form>
+                    {formelementarray.map(formelement => (
+                        <Input key={formelement.id}
+                            shouldvalidate={formelement.config.validation}
+                            validity={formelement.config.valid}
+                            changd={(event) => this.inputchangeHandler(event, formelement.id)}
+                            label={formelement.id}
+                            elementtype={formelement.config.elementtype}
+                            elementconfig={formelement.config.elementconfig}
+                            value={formelement.config.value}
+                            availableseats={this.state.loadedmovie.seats} />
+                    ))}
+                </form>
+                <button disabled={!this.state.forminvalid} onClick={this.orderplacedHandler}>Book</button>
+                <button onClick={this.ordercancelHandler}>Cancel</button>
+            </div>
             fullmovie = (
                 <div className="onemovie">
+                    <div className="onemovie_parallax" style={{ backgroundImage: `url(${this.state.loadedmovie.pic})` }}></div>
                     <div className="onemovie_help">
                         <div className="onemovie_details">
                             <h1>{this.state.loadedmovie.name}</h1>
@@ -155,11 +175,12 @@ class Fullmovie extends Component {
                         </div>
                     </div>
                 </div>
-            )}
-        return (
-            <div>{fullmovie}</div>       
-        )
+            )
         }
+        return (
+            <div>{fullmovie}</div>
+        )
     }
+}
 
-    export default withRouter(Fullmovie)
+export default withRouter(Fullmovie)

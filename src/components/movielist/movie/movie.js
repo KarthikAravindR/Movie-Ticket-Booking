@@ -28,7 +28,7 @@ const movie = props => {
                     <p>
                         Available Seats: {props.seats}
                     </p>
-                    <button onClick={() => redirecttoMovieHandler(props.id)}>Book Now</button>
+                    <button disabled={props.seats === 0} onClick={() => redirecttoMovieHandler(props.id)}>{props.seats === 0?"Sold Out":"Book Now"}</button>
                 </div>
         </div>
     )
