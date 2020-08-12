@@ -20,7 +20,8 @@ const movie = props => {
                 <div className="con-text">
                     <h2>{props.name}</h2>
                     <p>{props.genre1} {props.genre2}</p>
-                    <p>{props.runtime} {props.rating}</p>
+                    <p>Movie Runtime: {props.runtime}</p>
+                    <p>IMDB Rating: {props.rating}</p>
                     
                 </div>
             </div>

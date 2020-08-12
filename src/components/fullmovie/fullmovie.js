@@ -97,6 +97,11 @@ class Fullmovie extends Component {
             formdata[formdataidentifier] = this.state.orders[formdataidentifier].value
         }
         console.log('formdata =>', formdata)
+        const order = {
+            movie: this.state.loadedmovie,
+            userdata: formdata,
+        }
+        console.log(order)
         this.setState({ toastshow: true })
         setTimeout(() => {
             this.setState({ toastshow: false })
