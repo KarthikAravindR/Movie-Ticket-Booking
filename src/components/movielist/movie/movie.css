@@ -1,0 +1,65 @@
+.card{
+    width: 330px;
+    height: 250px;
+    background: #fff;
+    border-radius: 30px;
+    margin: 10px 15px;
+    min-height: 126px;
+    transition: all .25s ease;
+    box-shadow: 1px 1px 0px 1px rgba(0,0,0,.08);
+    
+}
+.card1{
+    width: 300px;
+    min-width: 300px;
+    height: auto;
+    background: #fff;
+    border-radius: 30px;
+    margin: 25px 0 0 0;
+    padding: 5px;
+    display: flex;
+    min-height: 156px;
+}
+
+.card .con-text{
+    padding: 0 0 0 20px;
+    width: 100%;
+}
+h2{
+    font-family: sans-serif;
+    margin: 0;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: .8rem;
+    opacity: .6;
+    margin: 10px 0 0 0;
+}
+.card .con-img{
+    width: 200px;
+    height: 170px;
+    margin: 0 3px;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card img{
+    height: 100%;
+    width: 100%;
+}
+
+.card_seats_button{
+    width: 100%;
+    padding: 5px 33px 5px 25px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.card_seats_button button{
+    cursor: pointer;
+}
+.card_seats_button p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}

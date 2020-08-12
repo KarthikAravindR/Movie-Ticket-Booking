@@ -1,0 +1,12 @@
+.searchbar_movielist{
+    width: 100%;
+    margin: auto;
+    margin-top: 70px;
+}
+.movielist{
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,32 @@
+.onemovie{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.onemovie_help{
+    width: 100%;
+    background-color: rgba(99, 35, 35, 0);
+}
+.onemovie_form{
+    margin: auto;
+    background-color: #9BDDCA ;
+    color:black;
+    height: max-content;
+    border: 1px solid #f5f2f3;
+    width: 500px;
+    padding: 16px;
+    line-height: 30px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+    border-radius: 7px;
+    font-family: 'Roboto', sans-serif;
+}
+.onemovie_details{
+    height: 1000px;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    border-radius: 25px 25px 0 25px;
+}
