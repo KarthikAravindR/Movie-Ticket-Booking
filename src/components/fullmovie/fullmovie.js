@@ -50,18 +50,6 @@ class Fullmovie extends Component {
                 },
                 valid: true
             },
-            Attendees_Name_1: {
-                elementtype: 'input',
-                elementconfig: {
-                    placeholder: 'Attendees Name',
-                    type: 'input'
-                },
-                value: '',
-                validation: {
-                    isrequired: true,
-                },
-                valid: true
-            },
         },
         forminvalid: false,
     }
